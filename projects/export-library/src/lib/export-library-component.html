@@ -1,15 +1,15 @@
 <div class="btn-download mt-1 text-left"
      nz-popover nzPopoverTrigger="click"
      nzPopoverPlacement="bottomRight"
-     [nzPopoverContent]="downloadTemplate"
+     [nzPopoverContent]="CSV || XLSX ? downloadTemplate : ''"
      [(nzPopoverVisible)]="visibleDownload">
-  <img src="../assets/icon/ic-download.svg" class="ic-download">
+<!--  <img src="../assets/icon/ic-download.svg" class="ic-download">-->
   <label class="label-filter">{{buttonLabel}}</label>
 </div>
 <ng-template #downloadTemplate>
-  <button nz-button class="btn-export" nzType="default" (click)="downloadCSV()">CSV</button>
+  <button nz-button class="btn-export" nzType="default" *ngIf="CSV" (click)="downloadCSV()">CSV</button>
   <br/>
-  <button nz-button class="btn-export" nzType="default" (click)="downloadXLSX()">Excel</button>
+  <button nz-button class="btn-export" nzType="default" *ngIf="XLSX" (click)="downloadXLSX()">Excel</button>
 </ng-template>
 
 

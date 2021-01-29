@@ -12,6 +12,9 @@ export class ExportLibraryComponent implements OnInit {
   @Input() dataExport: any;
   @Input() fileName: string;
   @Input() fieldData: any;
+  @Input() CSV: boolean = true;
+  @Input() XLSX: boolean = true;
+
 
   title = 'export-application';
   visibleDownload = false;
